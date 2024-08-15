@@ -4,6 +4,26 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'Style.css' %}">
     </head>
+    <style>
+        .table {
+        display: table;
+        width: 100%;
+        }
+        .table-row {
+            display: table-row;
+        }
+        .table-cell {
+            display: table-cell;
+            padding: 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+        }
+        .Head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
     <body>
         <h1 class="Head">Welcome Page of My Django Application</h1>
         <img src="{% static 'pic.png' %}" alt="Image">
