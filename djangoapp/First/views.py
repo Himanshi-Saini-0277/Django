@@ -10,4 +10,4 @@ def app(request):
     return render(request, 'app.html', {'emp': emp, 'books': books})
     
 def Style(request):
-    return render(request, 'Syle.css')
+    return render(request, 'Style.css')
