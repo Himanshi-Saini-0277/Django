@@ -1,11 +1,42 @@
 <html>
     <head>
-    <title>Django App</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'Style.css' %}">
+        <title>Django App</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Style.css' %}">
     </head>
     <body>
         <h1 class="Head">Welcome Page of My Django Application</h1>
-        <img src="{% static 'pic.png' %}">
+        <img src="{% static 'pic.png' %}" alt="Image">
+
+        <h2>Employees</h2>
+        <div class="table">
+            <div class="table-row">
+                <div class="table-cell"><strong>Name</strong></div>
+                <div class="table-cell"><strong>ID</strong></div>
+                <div class="table-cell"><strong>Address</strong></div>
+            </div>
+            {% for Employee in emp %}
+            <div class="table-row">
+                <div class="table-cell">{{Employee.emp_name}}</div>
+                <div class="table-cell">{{Employee.emp_id}}</div>
+                <div class="table-cell">{{Employee.emp_address}}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2>Books</h2>
+        <div class="table">
+            <div class="table-row">
+                <div class="table-cell"><strong>Name</strong></div>
+                <div class="table-cell"><strong>ID</strong></div>
+            </div>
+            {% for Book in books %}
+            <div class="table-row">
+                <div class="table-cell">{{Book.book_name}}</div>
+                <div class="table-cell">{{Book.book_id}}</div>
+            </div>
+            {% endfor %}
+        </div>
+
     </body>
 </html>
