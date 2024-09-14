@@ -1,0 +1,38 @@
+<html></html>
+    <head>
+        <title>Django App</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Style.css' %}">
+    </head>
+    <style>
+        .table {
+        display: table;
+        width: 100%;
+        }
+        .table-row {
+            display: table-row;
+        }
+        .table-cell {
+            display: table-cell;
+            padding: 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+        }
+        .Head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+    <body>
+        <h1 class="Head">Welcome Page of My Django Application</h1>
+
+        <h2>Create a New Post</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+    </body>
+</html>

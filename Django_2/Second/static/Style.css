@@ -1,0 +1,17 @@
+.table {
+    display: table;
+    width: 100%;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+.Head {
+    text-align: center;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Django App</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Style.css' %}">
+    </head>
+    <style>
+        .table {
+        display: table;
+        width: 100%;
+        }
+        .table-row {
+            display: table-row;
+        }
+        .table-cell {
+            display: table-cell;
+            padding: 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+        }
+        .Head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    </style>
+    <body>
+        <h1 class="Head">Welcome Page of My Django Application</h1>
+        <img src="{% static 'pic.png' %}" alt="Image">
+
+        <h2>All Posts</h2>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content }}</p>
+                    <p>Tags: {{ post.tags.all|join:", " }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>
