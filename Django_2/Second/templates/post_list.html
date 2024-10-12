@@ -29,12 +29,24 @@
         <img src="{% static 'pic.png' %}" alt="Image">
 
         <h2>All Posts</h2>
+        <form method="get" action="">
+            <label form="tag">Filter by Tag:</label>
+            <select name="tag" id="tag">
+                <option value="">--All Tags--</option>
+                {% for tag in tags %}
+                    <option value="{{ tag.name }}" {% if tag.name == tag_filter %}selected{% endif %}>{{ tag.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+        </form>
         <ul>
             {% for post in posts %}
                 <li>
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content }}</p>
-                    <p>Tags: {{ post.tags.all|join:", " }}</p>
+                    <div class="post-card">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content }}</p>
+                        <p>Tags: {{ post.tags.all|join:", " }}</p>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
