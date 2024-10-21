@@ -1,0 +1,30 @@
+<!-- plant_crud.html -->
+<h1>Plant List</h1>
+
+{% if plants %}
+    <ul>
+    {% for plant in plants %}
+        <li>
+            <form method="post" action="{% url 'plant-crud' plant.pid %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="text" name="id" value="{{ plant.pid }}" />
+                <input type="text" name="pname" value="{{ plant.plant_name }}" />
+                <button type="submit">Update</button>
+            </form>
+            <form method="post" action="{% url 'plant-crud' plant.pid %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>Add a New Plant</h2>
+<form method="post" action="{% url 'plant-crud' %}">
+    {% csrf_token %}
+    <input type="text" name="id"/>
+    <input type="text" name="pname"/>
+    <button type="submit">Add Plant</button>
+</form>

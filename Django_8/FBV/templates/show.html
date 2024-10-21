@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Plant Records</title>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Plant ID</th>  
+        <th>Plant Name</th>  
+        <th>Plant Price</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for plant in plants %}  
+    <tr>  
+        <td>{{ plant.pid }}</td>  
+        <td>{{ plant.plant_name }}</td>  
+        <td>{{ plant.plant_price }}</td>  
+        <td>  
+            <a href="/edit/{{ plant.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ plant.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/plant" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
