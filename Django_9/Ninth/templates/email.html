@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <title>Mail App</title>
+</head>
+<body>
+    <div>
+        <h1>BlogApp EMail App</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="e_address">To:</label>
+            <select id="e_address" name="e_address">
+            <option value="">--Select an Email Address--</option>
+            {% for address in e_address %}
+            <option value="{{ address.user_email }}">{{ address.user_email }}</option>
+            {% endfor %}
+            </select>
+            <br><br><label for="subject">Subject:</label>
+            <input id="subject" name="subject"/>
+        
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message"></textarea>
+
+            <input type="submit">
+        </form>
+        <p>{{ result }}</p>
+    </div>
+  
+</body>
+</html>
